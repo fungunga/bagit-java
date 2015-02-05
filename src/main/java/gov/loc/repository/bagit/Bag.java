@@ -45,7 +45,7 @@ public interface Bag extends Closeable {
 	 * </table>
 	 */
 	enum Format {
-		ZIP ("zip", true, ".zip"), FILESYSTEM ("file", false, "");
+		ZIP ("zip", true, ".zip"), FILESYSTEM ("file", false, ""), TAR ("tar", true, ".tar");
 		
 		/**
 		 * The URI scheme for the format.
