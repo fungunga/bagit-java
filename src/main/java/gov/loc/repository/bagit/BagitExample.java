@@ -21,17 +21,19 @@ import java.io.IOException;
 
 public class BagitExample {
 
+	private static final String	THE_BAG_LOCATION	= "./THE_BAG.tar";
+
 	public static void main(String[] args) throws IOException {
 
 		// Create example files for testing THE BAG!
 		String e1 = "example1";
-		File f1 = File.createTempFile("", ".txt", new File("."));
+		File f1 = File.createTempFile(e1 + ".", ".txt", new File("."));
 		BufferedWriter b = new BufferedWriter(new FileWriter(f1));
 		b.write(e1);
 		b.close();
 
 		String e2 = "example1";
-		File f2 = File.createTempFile("", ".txt", new File("."));
+		File f2 = File.createTempFile(e2 + ".", ".txt", new File("."));
 		BufferedWriter b2 = new BufferedWriter(new FileWriter(f2));
 		b2.write(e2);
 		b2.close();
@@ -49,7 +51,7 @@ public class BagitExample {
 		theBag = completor.complete(theBag);
 
 		// Create file for THE BAG and write using the TAR writer.
-		File theBagFile = new File("./THE_BAG.tar");
+		File theBagFile = new File(THE_BAG_LOCATION);
 		TarWriter zw = new TarWriter(bagFac);
 		theBag.write(zw, theBagFile);
 
