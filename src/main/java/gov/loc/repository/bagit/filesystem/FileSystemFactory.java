@@ -2,6 +2,7 @@ package gov.loc.repository.bagit.filesystem;
 
 import gov.loc.repository.bagit.Bag.Format;
 import gov.loc.repository.bagit.filesystem.impl.FileFileSystem;
+import gov.loc.repository.bagit.filesystem.impl.TarFileSystem;
 import gov.loc.repository.bagit.filesystem.impl.ZipFileSystem;
 import gov.loc.repository.bagit.utilities.FormatHelper;
 import gov.loc.repository.bagit.utilities.FormatHelper.UnknownFormatException;
@@ -24,6 +25,8 @@ public class FileSystemFactory {
 			fs = new FileFileSystem(fileForBag);
 		} else if (Format.ZIP == format) {
 			fs = new ZipFileSystem(fileForBag);
+		} else if (Format.TAR == format) {
+			fs = new TarFileSystem(fileForBag);
 		} else {
 			throw new UnsupportedFormatException();
 		}
